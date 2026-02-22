@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import type { ReactNode } from "react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import HeroBackdrop from "@/components/HeroBackdrop";
 import InteractiveCard from "@/components/InteractiveCard";
@@ -92,13 +92,30 @@ function SectionHeading({
 
 export default function Home() {
   const reduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress: heroScrollProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const heroExitY = useTransform(heroScrollProgress, [0, 0.42], [0, -220]);
-  const heroExitOpacity = useTransform(heroScrollProgress, [0, 0.3], [1, 0]);
+  const heroExitY = useTransform(
+    heroScrollProgress,
+    isMobile ? [0.22, 0.78] : [0, 0.42],
+    [0, -220]
+  );
+  const heroExitOpacity = useTransform(
+    heroScrollProgress,
+    isMobile ? [0.32, 0.82] : [0, 0.3],
+    [1, 0]
+  );
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const onChange = () => setIsMobile(media.matches);
+    onChange();
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, []);
 
   return (
     <>
