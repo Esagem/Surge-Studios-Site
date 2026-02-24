@@ -6,13 +6,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { MOTION_EASE } from "@/lib/motion";
-import { NAV_LINKS } from "@/lib/site-nav";
+import MiniDinoGame from "@/components/MiniDinoGame";
+import { NAV_LINKS, PRIMARY_CTA } from "@/lib/site-nav";
 
 export default function ScrollHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const reduceMotion = useReducedMotion();
   const pathname = usePathname();
   const headerLinks = NAV_LINKS;
+  const ctaActive = pathname === "/contact";
 
   return (
     <motion.header
@@ -51,25 +53,49 @@ export default function ScrollHeader() {
               </div>
             </Link>
 
-            <nav className="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
-              {headerLinks.map((item) => {
-                const active = pathname === item.href;
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`nav-link ${active ? "nav-link-active" : ""}`}
-                    aria-current={active ? "page" : undefined}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </nav>
+            <div className="hidden min-w-0 flex-1 justify-center px-2 min-[560px]:flex">
+              <div className="shrink-0 overflow-hidden rounded-xl">
+                <MiniDinoGame width={210} height={40} showHint={false} />
+              </div>
+            </div>
+
+            <div className="hidden items-center gap-2 min-[980px]:flex">
+              <nav className="flex items-center" aria-label="Primary navigation">
+                {headerLinks.map((item, index) => {
+                  const active = pathname === item.href;
+                  return (
+                    <div key={item.href} className="flex items-center">
+                      <Link
+                        href={item.href}
+                        className={`nav-link px-3 ${active ? "nav-link-active" : ""}`}
+                        aria-current={active ? "page" : undefined}
+                      >
+                        {item.label}
+                      </Link>
+                      {index < headerLinks.length - 1 ? (
+                        <span aria-hidden className="mx-1 text-sm text-white/35">
+                          |
+                        </span>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </nav>
+              <Link
+                href={PRIMARY_CTA.href}
+                className={`header-cta rounded-xl border px-3 py-2 text-sm font-medium transition ${
+                  ctaActive
+                    ? "border-[rgba(var(--accent)/0.6)] bg-[rgba(var(--accent)/0.2)] text-white"
+                    : "border-white/20 text-white"
+                }`}
+              >
+                {PRIMARY_CTA.label}
+              </Link>
+            </div>
 
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 text-white md:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 text-white min-[980px]:hidden"
               aria-expanded={menuOpen}
               aria-controls="mobile-main-nav"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -81,7 +107,7 @@ export default function ScrollHeader() {
 
           <motion.div
             id="mobile-main-nav"
-            className="overflow-hidden md:hidden"
+            className="overflow-hidden min-[980px]:hidden"
             initial={false}
             animate={menuOpen ? "open" : "closed"}
             variants={{
@@ -105,6 +131,15 @@ export default function ScrollHeader() {
                   </Link>
                 );
               })}
+              <Link
+                href={PRIMARY_CTA.href}
+                className={`mobile-nav-link mt-1 border border-white/15 ${
+                  ctaActive ? "mobile-nav-link-active" : ""
+                }`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {PRIMARY_CTA.label}
+              </Link>
             </nav>
           </motion.div>
         </div>

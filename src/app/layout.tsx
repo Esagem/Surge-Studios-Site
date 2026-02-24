@@ -18,7 +18,7 @@ const displaySerif = Bricolage_Grotesque({
 
 export const metadata: Metadata = {
   title: "Surge Studios",
-  description: "Storm-forged apps, SaaS, and MVPs that ship fast.",
+  description: "High-quality websites and apps, built with you.",
 };
 
 export default function RootLayout({

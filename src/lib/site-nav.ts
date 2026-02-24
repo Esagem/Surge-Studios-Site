@@ -5,13 +5,12 @@ export type NavItem = {
 
 export const NAV_LINKS: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Mission", href: "/mission" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "Our Story", href: "/our-story" },
 ];
 
 export const PRIMARY_CTA: NavItem = {
-  label: "Contact Us",
-  href: "/contact-us",
+  label: "Book a Call",
+  href: "/contact",
 };
