@@ -82,7 +82,7 @@ export default function ServicesPage() {
                 TakeOff
               </span>
               <span className="rounded-full border border-[rgba(var(--border)/0.9)] px-3 py-1 text-xs text-[rgb(var(--muted))]">
-                Client Work
+                Studio Build (Internal)
               </span>
             </div>
             <h2 className="display-heading mt-4 text-3xl font-semibold sm:text-4xl">
@@ -92,8 +92,8 @@ export default function ServicesPage() {
               <div className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">
                 <h3 className="text-base font-semibold">Overview</h3>
                 <p className="mt-2 text-sm text-[rgb(var(--muted))]">
-                  A quality-first product build with a tight timeline, focused scope, and an emphasis on a clean
-                  launch experience.
+                  An internal Surge Studios build used to prove process, quality standards, and launch-readiness
+                  in our own product environment.
                 </p>
               </div>
               <div className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">

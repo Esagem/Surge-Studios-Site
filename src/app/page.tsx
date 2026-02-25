@@ -15,39 +15,33 @@ import {
   staggerContainerVariant,
 } from "@/lib/motion";
 
-const trustStrip = [
-  "Call or text us directly",
-  "Frequent progress updates",
-  "Clear milestones + clean handoff",
-];
-
 const featuredStudioBuilds = [
   {
     title: "SaaS Starter",
-    desc: "Auth + Billing + Dashboard foundation for teams who need a strong base quickly.",
+    desc: "Auth, billing, and dashboard foundations to get a product or internal tool moving quickly.",
   },
   {
     title: "Website Launch Kit",
-    desc: "CMS + SEO + Performance setup for a site that is ready to rank and convert.",
+    desc: "CMS, SEO, and performance setup for a marketing site that is ready to publish and grow.",
   },
   {
     title: "Legacy Refresh",
-    desc: "UI + speed upgrade for products that need polish without a full rewrite.",
+    desc: "UI cleanup and speed improvements for products that need a stronger front end without a rebuild.",
   },
 ];
 
 const serviceLanes = [
   {
     title: "Build something new",
-    desc: "Websites, apps, and SaaS products built with clear scope and quality-first execution.",
+    desc: "New websites, apps, and SaaS products with focused scope and steady execution.",
   },
   {
     title: "Improve what you already have",
-    desc: "Adapt and refactor existing code so your product gets better without starting over.",
+    desc: "Work inside your existing codebase to refactor, extend, and modernize without starting over.",
   },
   {
     title: "Fix + polish + ship",
-    desc: "Performance, bugs, reliability, and UX cleanup to get a product launch-ready.",
+    desc: "Performance, reliability, and UX cleanup to move a rough build toward release.",
   },
 ];
 
@@ -57,13 +51,6 @@ const processSteps = [
   "Build",
   "Polish",
   "Launch",
-];
-
-const expectations = [
-  "Direct communication",
-  "Weekly touchpoints",
-  "Transparent progress",
-  "Clean handoff",
 ];
 
 function Container({ children }: { children: ReactNode }) {
@@ -236,12 +223,12 @@ export default function Home() {
               variants={staggerContainerVariant(0.08, reduceMotion ? 0 : 0.2)}
               className="grid gap-8 sm:gap-10 md:grid-cols-2 md:items-center"
             >
-              <div>
+              <div className="flex h-full flex-col justify-center">
                 <motion.p
                   variants={fadeUpIn(0.02, 16)}
                   className="hero-kicker text-xs font-medium text-[rgb(var(--muted))]"
                 >
-                  Surge Studios | Quality-first web + app builds
+                  Surge Studios | Websites, apps, and internal product builds
                 </motion.p>
 
                 <motion.h1
@@ -256,9 +243,8 @@ export default function Home() {
                   variants={fadeUpIn(0.16, 20)}
                   className="mt-5 max-w-xl text-base text-[rgb(var(--muted))]"
                 >
-                  We&apos;re a small team you can actually reach. You&apos;ll have our numbers, we&apos;ll
-                  know your name, and you&apos;ll get frequent updates while we build something you&apos;re
-                  proud to share.
+                  We&apos;re a small team you can actually reach. You&apos;ll work directly with us, get
+                  regular updates, and always know what is being built next.
                 </motion.p>
 
                 <motion.div
@@ -271,16 +257,6 @@ export default function Home() {
                   </Button>
                 </motion.div>
 
-                <motion.div
-                  variants={fadeUpIn(0.3, 18)}
-                  className="mt-10 grid gap-4 sm:grid-cols-3"
-                >
-                  {trustStrip.map((item) => (
-                    <div key={item}>
-                      <p className="text-sm font-semibold">{item}</p>
-                    </div>
-                  ))}
-                </motion.div>
               </div>
 
               <motion.div
@@ -305,11 +281,11 @@ export default function Home() {
                 }
               >
                 <Card className="bg-[rgba(12,19,30,0.82)]">
-                  <p className="text-xs font-medium text-[rgb(var(--muted))]">How we work with clients</p>
+                  <p className="text-xs font-medium text-[rgb(var(--muted))]">How we work</p>
                   <p className="display-heading mt-2 text-lg font-semibold">Quality first. Fast when it counts.</p>
                   <p className="mt-2 text-sm text-[rgb(var(--muted))]">
-                    Discovery, design, build, and a real polish step before launch. You get direct communication
-                    and a clean handoff when we wrap.
+                    We plan in phases, build in short cycles, and leave you with something maintainable after
+                    launch.
                   </p>
 
                   <div className="mt-6 grid gap-3">
@@ -326,10 +302,6 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-
-                  <p className="mt-4 text-xs text-[rgb(var(--muted))]">
-                    Swap in real screenshots and logos as content is finalized.
-                  </p>
                 </Card>
 
                 <div className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full bg-[rgba(var(--accent)/0.16)] blur-2xl" />
@@ -344,9 +316,9 @@ export default function Home() {
           <motion.div variants={staggerContainerVariant(0.1, 0.06)}>
             <motion.div variants={sectionRevealVariant(0)}>
               <SectionHeading
-                eyebrow="Trust strip"
-                title="Our real differentiator"
-                desc="You can reach us directly, see progress frequently, and understand exactly how the build is moving."
+                eyebrow="Why Surge"
+                title="The difference"
+                desc="Small team, direct access, and visible progress from start to launch."
               />
             </motion.div>
 
@@ -357,15 +329,15 @@ export default function Home() {
               {[
                 {
                   title: "Call or text us directly",
-                  desc: "Small team, direct contact. No account-manager relay layer.",
+                  desc: "Small team, direct contact. No account-manager or middle-man.",
                 },
                 {
                   title: "Frequent progress updates",
-                  desc: "Regular demos and updates so you always know what is done and what is next.",
+                  desc: "Short updates and working demos so you can see momentum as it happens.",
                 },
                 {
                   title: "Clear milestones + clean handoff",
-                  desc: "Scope clarity upfront, documented decisions, and handoff materials at launch.",
+                  desc: "Clear scope upfront, documented decisions throughout, and a clean handoff at launch.",
                 },
               ].map((item) => (
                 <motion.div key={item.title} variants={sectionRevealVariant()}>
@@ -390,7 +362,7 @@ export default function Home() {
               <SectionHeading
                 eyebrow="Portfolio"
                 title="Featured work"
-                desc="Client work and studio builds, clearly labeled so you can see what was built for clients and what we built internally."
+                desc="Studio builds and project work, clearly labeled so you know what was made for internal use and what was built for others."
               />
               <div className="flex gap-3">
                 <Button href="/portfolio" variant="ghost">
@@ -403,20 +375,14 @@ export default function Home() {
             <motion.div className="mt-10 grid gap-6 lg:grid-cols-[1.3fr_1fr]" variants={staggerContainerVariant(0.1)}>
               <motion.div variants={sectionRevealVariant()}>
                 <Card className="h-full">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full border border-[rgba(var(--accent)/0.4)] bg-[rgba(var(--accent)/0.12)] px-3 py-1 text-xs font-medium">
-                      Client Work
-                    </span>
-                    <span className="rounded-full border border-[rgba(var(--border)/0.9)] px-3 py-1 text-xs text-[rgb(var(--muted))]">
-                      Case study details in Services
-                    </span>
-                  </div>
+                  <p className="text-xs font-medium uppercase tracking-[0.18em] text-[rgb(var(--muted))]">
+                    Studio Build
+                  </p>
                   <h3 className="display-heading mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
                     TakeOff
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-[rgb(var(--muted))]">
-                    A quality-first build focused on shipping a polished experience with clear milestones and a
-                    clean handoff. We are keeping the full case study inside Services for now.
+                    An internal Surge Studios build used to test workflows, sharpen UX details, and prove launch-ready patterns.
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Button href="/services#takeoff">View TakeOff</Button>
@@ -432,7 +398,7 @@ export default function Home() {
                   <motion.div key={build.title} variants={sectionRevealVariant()}>
                     <Card>
                       <p className="text-xs font-medium uppercase tracking-[0.18em] text-[rgb(var(--muted))]">
-                        Studio Build
+                        Studio Starter Kit
                       </p>
                       <h3 className="display-heading mt-3 text-lg font-semibold tracking-tight">
                         {build.title}
@@ -454,7 +420,7 @@ export default function Home() {
               <SectionHeading
                 eyebrow="What we do"
                 title="Three ways we help"
-                desc="We can build from scratch, improve what you already have, or finish the quality work that turns a rough build into something launch-ready."
+                desc="We can start from scratch, improve an existing codebase, or finish the work that gets a build ready to ship."
               />
             </motion.div>
             <motion.div className="mt-10 grid gap-6 md:grid-cols-3" variants={staggerContainerVariant(0.1)}>
@@ -478,7 +444,7 @@ export default function Home() {
               <SectionHeading
                 eyebrow="How we work"
                 title="A real polish step"
-                desc="Discovery -> Design -> Build -> Polish -> Launch. The polish phase is a real part of the process, not a leftover if there is time."
+                desc="Discovery -> Design -> Build -> Polish -> Launch. Polish is scheduled work, not an afterthought."
               />
             </motion.div>
             <motion.div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5" variants={staggerContainerVariant(0.08)}>
@@ -506,78 +472,6 @@ export default function Home() {
         </Container>
       </AnimatedSection>
 
-      <AnimatedSection className="py-12 sm:py-20" delay={0.09}>
-        <Container>
-          <motion.div variants={sectionRevealVariant()} className="rounded-[2.25rem] border border-[rgba(var(--border)/0.9)] p-6 sm:p-10">
-            <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-              <div>
-                <p className="hero-kicker text-xs">Calendar integration</p>
-                <h2 className="display-heading mt-2 text-3xl font-semibold sm:text-4xl">
-                  Pick a time that works
-                </h2>
-                <p className="mt-3 max-w-xl text-[rgb(var(--muted))]">
-                  Let people choose a time that works (Calendly). We keep it simple and follow up quickly.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Button href="/contact#book-a-call">Book a Call</Button>
-                  <Button href="/contact" variant="ghost">
-                    Contact page
-                  </Button>
-                </div>
-              </div>
-
-              <InteractiveCard className="rounded-2xl border border-[rgba(var(--border)/0.9)] bg-[rgba(12,18,28,0.82)] p-6">
-                <div className="flex min-h-56 items-center justify-center rounded-2xl border border-dashed border-[rgba(var(--border)/0.9)] text-center text-sm text-[rgb(var(--muted))]">
-                  Calendly embed placeholder
-                </div>
-                <p className="mt-4 text-xs text-[rgb(var(--muted))]">
-                  Add the real embed when your booking link is finalized.
-                </p>
-              </InteractiveCard>
-            </div>
-          </motion.div>
-        </Container>
-      </AnimatedSection>
-
-      <AnimatedSection className="py-12 sm:py-20" delay={0.1}>
-        <Container>
-          <motion.div variants={staggerContainerVariant(0.1)}>
-            <motion.div variants={sectionRevealVariant()}>
-              <SectionHeading
-                eyebrow="Expectations"
-                title="What you can expect working with us"
-                desc="Until testimonials are in place, this section sets the working style and delivery expectations clearly."
-              />
-            </motion.div>
-            <motion.div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]" variants={staggerContainerVariant(0.1)}>
-              <motion.div variants={sectionRevealVariant()}>
-                <Card className="h-full">
-                  <h3 className="display-heading text-2xl font-semibold">Clear communication, real progress</h3>
-                  <p className="mt-3 text-sm text-[rgb(var(--muted))]">
-                    We work like a small team that is actually reachable. You get direct communication,
-                    regular check-ins, and a transparent view of what is shipping.
-                  </p>
-                </Card>
-              </motion.div>
-              <motion.div variants={sectionRevealVariant()}>
-                <Card className="h-full">
-                  <ul className="grid gap-3 text-sm">
-                    {expectations.map((item) => (
-                      <li
-                        key={item}
-                        className="rounded-xl border border-[rgba(var(--border)/0.9)] px-4 py-3 text-[rgb(var(--muted))]"
-                      >
-                        <span className="font-medium text-[rgb(var(--fg))]">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </Container>
-      </AnimatedSection>
-
       <AnimatedSection className="py-12 sm:py-20" delay={0.12}>
         <Container>
           <motion.div
@@ -589,8 +483,8 @@ export default function Home() {
                 Tell us what you&apos;re building<span className="text-[rgb(var(--accent))]">.</span>
               </h2>
               <p className="mt-3 max-w-2xl text-base text-[rgb(var(--muted))]">
-                We&apos;ll help you define a clear scope and a practical path to launch. If it&apos;s a fit,
-                we&apos;ll keep the next steps simple.
+                Tell us what you&apos;re building, what is blocking progress, and what needs to go live first.
+                If it&apos;s a fit, we&apos;ll propose a simple next step.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Button href="/contact#book-a-call">Book a Call</Button>
