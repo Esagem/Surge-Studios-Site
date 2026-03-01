@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import type { PortfolioMediaItem, PortfolioPalette } from "@/content/portfolio";
 
 type Props = {
@@ -17,10 +17,12 @@ function Panel({
   className,
   background,
   borderColor,
+  children,
 }: {
   className?: string;
   background?: string;
   borderColor?: string;
+  children?: ReactNode;
 }) {
   return (
     <div
@@ -29,7 +31,9 @@ function Panel({
         background: background ?? "rgba(255,255,255,0.03)",
         borderColor: borderColor ?? "rgba(255,255,255,0.06)",
       }}
-    />
+    >
+      {children}
+    </div>
   );
 }
 
