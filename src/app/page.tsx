@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import HeroBackdrop from "@/components/HeroBackdrop";
 import InteractiveCard from "@/components/InteractiveCard";
+import MiniDinoGame from "@/components/MiniDinoGame";
 import SiteFooter from "@/components/SiteFooter";
 import {
   fadeUpIn,
@@ -54,7 +55,7 @@ const processSteps = [
 ];
 
 function Container({ children }: { children: ReactNode }) {
-  return <div className="mx-auto w-full max-w-6xl px-5 sm:px-6">{children}</div>;
+  return <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">{children}</div>;
 }
 
 function Card({
@@ -185,12 +186,12 @@ export default function Home() {
     <>
       <section
         ref={heroRef}
-        className="relative flex min-h-[100svh] items-center py-24 sm:min-h-[92vh] sm:py-10"
+        className="relative flex items-start overflow-x-clip pt-28 pb-14 sm:pt-32 sm:pb-16 md:min-h-[100svh] md:items-center md:py-20 lg:min-h-[92vh] lg:py-10"
       >
         <HeroBackdrop />
         <Container>
           <motion.div
-            className="rounded-[2rem] border border-white/10 bg-black/45 p-5 backdrop-blur-xl sm:rounded-[2.25rem] sm:p-12"
+            className="mx-auto max-w-4xl rounded-[1.75rem] border border-white/10 bg-black/45 p-4 backdrop-blur-xl sm:rounded-[2rem] sm:p-7 lg:rounded-[2.25rem] lg:p-9"
             initial={
               reduceMotion
                 ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
@@ -221,9 +222,9 @@ export default function Home() {
               initial="hidden"
               animate="visible"
               variants={staggerContainerVariant(0.08, reduceMotion ? 0 : 0.2)}
-              className="grid gap-8 sm:gap-10 md:grid-cols-2 md:items-center"
+              className="grid gap-6"
             >
-              <div className="flex h-full flex-col justify-center">
+              <div className="flex h-full max-w-2xl flex-col justify-center">
                 <motion.p
                   variants={fadeUpIn(0.02, 16)}
                   className="hero-kicker text-xs font-medium text-[rgb(var(--muted))]"
@@ -233,7 +234,7 @@ export default function Home() {
 
                 <motion.h1
                   variants={fadeUpIn(0.08, 22)}
-                  className="display-heading mt-4 text-3xl font-semibold tracking-tight sm:text-6xl"
+                  className="display-heading mt-4 text-[clamp(2.5rem,9vw,4.75rem)] font-semibold tracking-tight"
                 >
                   High-quality websites and apps, built with you
                   <span className="text-[rgb(var(--accent))]">.</span>
@@ -241,15 +242,14 @@ export default function Home() {
 
                 <motion.p
                   variants={fadeUpIn(0.16, 20)}
-                  className="mt-5 max-w-xl text-base text-[rgb(var(--muted))]"
+                  className="mt-4 max-w-lg text-sm text-[rgb(var(--muted))] sm:mt-5 sm:text-base"
                 >
-                  We&apos;re a small team you can actually reach. You&apos;ll work directly with us, get
-                  regular updates, and always know what is being built next.
+                  Small team. Direct contact. Clear progress from kickoff to launch.
                 </motion.p>
 
                 <motion.div
                   variants={fadeUpIn(0.24, 16)}
-                  className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center"
+                  className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:items-center"
                 >
                   <Button href="/contact#book-a-call">Book a Call</Button>
                   <Button href="/portfolio" variant="ghost">
@@ -257,58 +257,31 @@ export default function Home() {
                   </Button>
                 </motion.div>
 
+                <motion.div
+                  variants={fadeUpIn(0.3, 14)}
+                  className="mt-5 flex flex-wrap gap-2 text-xs text-[rgb(var(--muted))]"
+                >
+                  {["Direct contact", "Weekly updates", "Clean handoff"].map((line) => (
+                    <span
+                      key={line}
+                      className="rounded-full border border-[rgba(var(--border)/0.9)] bg-[rgba(var(--fg)/0.04)] px-3 py-1.5"
+                    >
+                      {line}
+                    </span>
+                  ))}
+                </motion.div>
               </div>
-
-              <motion.div
-                variants={fadeUpIn(0.18, 20)}
-                className="relative"
-                animate={
-                  reduceMotion
-                    ? undefined
-                    : {
-                        y: [0, -5, 0],
-                      }
-                }
-                transition={
-                  reduceMotion
-                    ? undefined
-                    : {
-                        duration: 8,
-                        repeat: Infinity,
-                        repeatType: "mirror",
-                        ease: "easeInOut",
-                      }
-                }
-              >
-                <Card className="bg-[rgba(12,19,30,0.82)]">
-                  <p className="text-xs font-medium text-[rgb(var(--muted))]">How we work</p>
-                  <p className="display-heading mt-2 text-lg font-semibold">Quality first. Fast when it counts.</p>
-                  <p className="mt-2 text-sm text-[rgb(var(--muted))]">
-                    We plan in phases, build in short cycles, and leave you with something maintainable after
-                    launch.
-                  </p>
-
-                  <div className="mt-6 grid gap-3">
-                    {[
-                      "Direct contact",
-                      "Frequent progress updates",
-                      "Transparent milestones",
-                    ].map((line) => (
-                      <div
-                        key={line}
-                        className="rounded-2xl border border-[rgba(var(--border)/0.9)] bg-[rgba(var(--fg)/0.03)] px-4 py-3 text-sm"
-                      >
-                        {line}
-                      </div>
-                    ))}
-                  </div>
-                </Card>
-
-                <div className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full bg-[rgba(var(--accent)/0.16)] blur-2xl" />
-              </motion.div>
             </motion.div>
           </motion.div>
         </Container>
+      </section>
+
+      <section className="relative left-1/2 w-screen -translate-x-1/2 border-y border-white/10 bg-[linear-gradient(180deg,rgba(12,20,34,0.94)_0%,rgba(5,11,20,0.98)_100%)] py-3 sm:py-4">
+        <div className="mx-auto flex max-w-6xl justify-center px-4 sm:px-6">
+          <div className="w-full max-w-md">
+            <MiniDinoGame width={420} height={52} showHint={false} />
+          </div>
+        </div>
       </section>
 
       <AnimatedSection className="py-12 sm:py-20" delay={0.04}>

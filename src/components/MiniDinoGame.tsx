@@ -545,7 +545,7 @@ export default function MiniDinoGame({
         width={width}
         height={height}
         tabIndex={0}
-        className="rounded-xl outline-none [image-rendering:pixelated]"
+        className="h-auto w-full max-w-full rounded-xl outline-none [image-rendering:pixelated]"
         aria-label="Mini jump game"
         role="img"
       />

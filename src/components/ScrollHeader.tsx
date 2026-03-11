@@ -6,7 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { MOTION_EASE } from "@/lib/motion";
-import MiniDinoGame from "@/components/MiniDinoGame";
 import { NAV_LINKS, PRIMARY_CTA } from "@/lib/site-nav";
 
 export default function ScrollHeader() {
@@ -52,12 +51,6 @@ export default function ScrollHeader() {
                 <p className="text-sm font-semibold text-white">Studios</p>
               </div>
             </Link>
-
-            <div className="hidden min-w-0 flex-1 justify-center px-2 min-[560px]:flex">
-              <div className="shrink-0 overflow-hidden rounded-xl">
-                <MiniDinoGame width={210} height={40} showHint={false} />
-              </div>
-            </div>
 
             <div className="hidden items-center gap-2 min-[980px]:flex">
               <nav className="flex items-center" aria-label="Primary navigation">

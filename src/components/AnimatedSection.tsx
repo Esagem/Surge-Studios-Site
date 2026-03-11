@@ -38,8 +38,8 @@ export default function AnimatedSection({
       variants={sectionRevealVariant(delay)}
       viewport={
         isMobile
-          ? { amount: 0.14, margin: "-4% 0px -4% 0px" }
-          : { amount: 0.25, margin: "-10% 0px -10% 0px" }
+          ? { amount: 0.08, margin: "0px 0px -2% 0px" }
+          : { amount: 0.14, margin: "0px 0px -6% 0px" }
       }
       onViewportEnter={() => setActive(true)}
       onViewportLeave={() => {

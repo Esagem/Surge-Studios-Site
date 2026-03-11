@@ -3,9 +3,9 @@ import type { Variants } from "framer-motion";
 export const MOTION_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export const MOTION_DURATIONS = {
-  fast: 0.24,
-  base: 0.5,
-  slow: 0.8,
+  fast: 0.2,
+  base: 0.36,
+  slow: 0.52,
 } as const;
 
 export const fadeUpIn = (delay = 0, distance = 20): Variants => ({
