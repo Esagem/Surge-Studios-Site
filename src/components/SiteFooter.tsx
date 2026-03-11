@@ -8,14 +8,18 @@ export default function SiteFooter() {
           <div>
             <p className="hero-kicker text-xs">Surge Studios LLC</p>
             <div className="mt-3 grid gap-2 text-sm text-[rgb(var(--muted))]">
-              <Link href="/terms">Terms of Service</Link>
-              <Link href="/privacy">Privacy Policy</Link>
+              <Link className="transition hover:text-[rgb(var(--fg))]" href="/terms">
+                Terms of Service
+              </Link>
+              <Link className="transition hover:text-[rgb(var(--fg))]" href="/privacy">
+                Privacy Policy
+              </Link>
             </div>
           </div>
         </div>
 
         <div className="mt-8 border-t border-[rgba(var(--border)/0.9)] pt-4 text-center text-xs text-[rgb(var(--muted))]">
-          <p>© 2026 Surge Studios LLC</p>
+          <p>&copy; 2026 Surge Studios LLC</p>
         </div>
       </div>
     </footer>
