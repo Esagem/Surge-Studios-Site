@@ -87,15 +87,19 @@ function Button({
     "inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-medium transition duration-300 focus-visible:outline-none sm:w-auto";
   const styles =
     variant === "primary"
-      ? "bg-[rgb(var(--fg))] !text-black [color:#000] hover:translate-y-[-1px] hover:shadow-[0_8px_20px_rgba(180,220,255,0.2)] active:translate-y-[0px]"
-      : "border border-[rgb(var(--border))] text-[rgb(var(--fg))] hover:bg-[rgba(var(--fg)/0.08)]";
+      ? "btn-primary"
+      : "btn-ghost";
 
   return (
     <Link href={href} className={`${base} ${styles}`}>
       {children}
       <span
         aria-hidden
-        className={variant === "primary" ? "text-black/55" : "text-[rgba(var(--bg)/0.55)]"}
+        className={
+          variant === "primary"
+            ? "text-[rgba(var(--btn-primary-fg)/0.62)]"
+            : "text-[rgba(var(--btn-ghost-fg)/0.58)]"
+        }
       >
         &gt;
       </span>
@@ -191,7 +195,7 @@ export default function Home() {
         <HeroBackdrop />
         <Container>
           <motion.div
-            className="mx-auto max-w-4xl rounded-[1.75rem] border border-white/10 bg-black/45 p-4 backdrop-blur-xl sm:rounded-[2rem] sm:p-7 lg:rounded-[2.25rem] lg:p-9"
+            className="hero-panel mx-auto max-w-4xl rounded-[1.75rem] border p-4 backdrop-blur-xl sm:rounded-[2rem] sm:p-7 lg:rounded-[2.25rem] lg:p-9"
             initial={
               reduceMotion
                 ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
@@ -276,7 +280,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="relative left-1/2 w-screen -translate-x-1/2 border-y border-white/10 bg-[linear-gradient(180deg,rgba(12,20,34,0.94)_0%,rgba(5,11,20,0.98)_100%)] py-3 sm:py-4">
+      <section className="divider-strip relative left-1/2 w-screen -translate-x-1/2 border-y py-3 sm:py-4">
         <div className="mx-auto flex max-w-6xl justify-center px-4 sm:px-6">
           <div className="w-full max-w-md">
             <MiniDinoGame width={420} height={52} showHint={false} />
@@ -451,7 +455,7 @@ export default function Home() {
             variants={sectionRevealVariant()}
             className="rounded-[2.25rem] border border-[rgba(var(--border)/0.9)] p-6 sm:p-14"
           >
-            <InteractiveCard className="rounded-[2rem] border border-white/10 bg-[rgba(12,18,28,0.82)] p-6 sm:p-10">
+            <InteractiveCard className="rounded-[2rem] border border-[rgba(var(--hero-panel-border)/0.18)] bg-[rgba(var(--hero-panel-bg)/0.78)] p-6 sm:p-10">
               <h2 className="display-heading text-3xl font-semibold tracking-tight sm:text-4xl">
                 Tell us what you&apos;re building<span className="text-[rgb(var(--accent))]">.</span>
               </h2>

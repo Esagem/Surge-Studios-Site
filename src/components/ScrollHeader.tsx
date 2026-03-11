@@ -15,6 +15,13 @@ export default function ScrollHeader() {
   const headerLinks = NAV_LINKS;
   const ctaActive = pathname === "/contact";
 
+  const toggleTheme = () => {
+    const currentTheme = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = nextTheme;
+    window.localStorage.setItem("theme", nextTheme);
+  };
+
   return (
     <motion.header
       className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6"
@@ -33,7 +40,7 @@ export default function ScrollHeader() {
       }
     >
       <div className="mx-auto max-w-6xl">
-        <div className="pointer-events-auto rounded-2xl border border-white/15 bg-[rgba(5,10,16,0.8)] px-3 py-2 backdrop-blur-xl sm:px-4">
+        <div className="theme-header-shell pointer-events-auto rounded-2xl border px-3 py-2 backdrop-blur-xl sm:px-4">
           <div className="flex items-center justify-between gap-4">
             <Link href="/" className="flex items-center gap-3">
               <motion.div whileHover={reduceMotion ? undefined : { scale: 1.04 }}>
@@ -42,13 +49,13 @@ export default function ScrollHeader() {
                   alt="Surge Studios logo"
                   width={40}
                   height={40}
-                  className="h-10 w-10 rounded-full border border-white/25 object-cover"
+                  className="theme-header-logo h-10 w-10 rounded-full border object-cover"
                   priority
                 />
               </motion.div>
               <div className="leading-tight">
-                <p className="text-xs tracking-[0.2em] text-white/70">SURGE</p>
-                <p className="text-sm font-semibold text-white">Studios</p>
+                <p className="theme-wordmark-kicker text-xs tracking-[0.2em]">SURGE</p>
+                <p className="theme-wordmark-title text-sm font-semibold">Studios</p>
               </div>
             </Link>
 
@@ -66,7 +73,7 @@ export default function ScrollHeader() {
                         {item.label}
                       </Link>
                       {index < headerLinks.length - 1 ? (
-                        <span aria-hidden className="mx-1 text-sm text-white/35">
+                        <span aria-hidden className="theme-divider mx-1 text-sm">
                           |
                         </span>
                       ) : null}
@@ -78,24 +85,54 @@ export default function ScrollHeader() {
                 href={PRIMARY_CTA.href}
                 className={`header-cta rounded-xl border px-3 py-2 text-sm font-medium transition ${
                   ctaActive
-                    ? "border-[rgba(var(--accent)/0.6)] bg-[rgba(var(--accent)/0.2)] text-white"
-                    : "border-white/20 text-white"
+                    ? "border-[rgba(var(--accent)/0.6)] bg-[rgba(var(--accent)/0.2)] text-[rgb(var(--header-text))]"
+                    : "border-[rgba(var(--header-border)/0.2)] text-[rgb(var(--header-text))]"
                 }`}
               >
                 {PRIMARY_CTA.label}
               </Link>
             </div>
 
-            <button
-              type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 text-white min-[980px]:hidden"
-              aria-expanded={menuOpen}
-              aria-controls="mobile-main-nav"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMenuOpen((prev) => !prev)}
-            >
-              <span className="text-lg leading-none">{menuOpen ? "x" : "="}</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                className="theme-toggle"
+                aria-label="Toggle color theme"
+                onClick={toggleTheme}
+              >
+                <span className="theme-toggle-track" />
+                <span className="theme-toggle-thumb" />
+                <span
+                  aria-hidden
+                  className="theme-toggle-glyph theme-toggle-glyph-left"
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current stroke-2">
+                    <path d="M12 4.75v2.5M12 16.75v2.5M6.88 6.88l1.77 1.77M15.35 15.35l1.77 1.77M4.75 12h2.5M16.75 12h2.5M6.88 17.12l1.77-1.77M15.35 8.65l1.77-1.77" />
+                    <circle cx="12" cy="12" r="3.25" />
+                  </svg>
+                </span>
+                <span
+                  aria-hidden
+                  className="theme-toggle-glyph theme-toggle-glyph-right"
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+                    <path d="M20.2 14.3A8.4 8.4 0 0 1 9.7 3.8a.75.75 0 0 0-.92-.93A9.75 9.75 0 1 0 21.13 15.2a.75.75 0 0 0-.93-.9Z" />
+                  </svg>
+                </span>
+                <span className="sr-only">Toggle color theme</span>
+              </button>
+
+              <button
+                type="button"
+                className="theme-menu-button inline-flex h-10 w-10 items-center justify-center rounded-xl min-[980px]:hidden"
+                aria-expanded={menuOpen}
+                aria-controls="mobile-main-nav"
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
+                onClick={() => setMenuOpen((prev) => !prev)}
+              >
+                <span className="text-lg leading-none">{menuOpen ? "x" : "="}</span>
+              </button>
+            </div>
           </div>
 
           <motion.div
@@ -126,7 +163,7 @@ export default function ScrollHeader() {
               })}
               <Link
                 href={PRIMARY_CTA.href}
-                className={`mobile-nav-link mt-1 border border-white/15 ${
+                className={`mobile-nav-link mt-1 border border-[rgba(var(--header-border)/0.15)] ${
                   ctaActive ? "mobile-nav-link-active" : ""
                 }`}
                 onClick={() => setMenuOpen(false)}

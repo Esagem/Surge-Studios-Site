@@ -21,14 +21,27 @@ export const metadata: Metadata = {
   description: "High-quality websites and apps, built with you.",
 };
 
+const themeInitScript = `
+  try {
+    var savedTheme = window.localStorage.getItem("theme");
+    var theme = savedTheme === "light" || savedTheme === "dark"
+      ? savedTheme
+      : (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    document.documentElement.dataset.theme = theme;
+  } catch (error) {
+    document.documentElement.dataset.theme = "dark";
+  }
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${bodySans.variable} ${displaySerif.variable} antialiased`}>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <ScrollHeader />
         {children}
       </body>

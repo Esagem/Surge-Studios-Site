@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
@@ -70,18 +70,18 @@ export default function PortfolioMediaCarousel({ project }: Props) {
               <button
                 type="button"
                 onClick={() => step(-1)}
-                className="absolute left-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-[rgba(10,12,16,0.8)] text-sm text-white/90 transition hover:scale-105 hover:bg-white/10 sm:grid"
+                className="btn-ghost absolute left-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 place-items-center rounded-full text-sm transition hover:scale-105 sm:grid"
                 aria-label={`Previous ${project.name} mockup`}
               >
-                ←
+                {"<"}
               </button>
               <button
                 type="button"
                 onClick={() => step(1)}
-                className="absolute right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-[rgba(10,12,16,0.8)] text-sm text-white/90 transition hover:scale-105 hover:bg-white/10 sm:grid"
+                className="btn-ghost absolute right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 place-items-center rounded-full text-sm transition hover:scale-105 sm:grid"
                 aria-label={`Next ${project.name} mockup`}
               >
-                →
+                {">"}
               </button>
             </>
           ) : null}

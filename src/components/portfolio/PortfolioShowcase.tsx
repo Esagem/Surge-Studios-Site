@@ -116,7 +116,7 @@ export default function PortfolioShowcase() {
   if (!activeProject) return null;
 
   return (
-    <main className="page-section pb-8 sm:pb-12">
+    <main className="page-section theme-scope-dark pb-8 sm:pb-12">
       <PortfolioHero
         project={activeProject}
         projectIndex={projects.findIndex((project) => project.id === activeProject.id)}
@@ -166,13 +166,13 @@ export default function PortfolioShowcase() {
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="rounded-2xl bg-[rgb(var(--fg))] px-5 py-3 text-sm font-semibold !text-black [color:#000]"
+                  className="btn-primary rounded-2xl px-5 py-3 text-sm font-semibold"
                 >
                   Book a Call
                 </Link>
                 <Link
                   href="/services"
-                  className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
+                  className="btn-ghost rounded-2xl px-5 py-3 text-sm font-medium"
                 >
                   View Services
                 </Link>

@@ -66,7 +66,7 @@ export default function ContactPage() {
                 <label className="grid gap-2 text-sm">
                   Name
                   <input
-                    className="rounded-xl border border-[rgba(var(--border)/0.9)] bg-white/95 px-3 py-2 text-[rgb(var(--bg))] placeholder:text-slate-500"
+                    className="form-field rounded-xl border border-[rgba(var(--border)/0.9)] px-3 py-2"
                     placeholder="Your name"
                   />
                 </label>
@@ -74,7 +74,7 @@ export default function ContactPage() {
                   Email
                   <input
                     type="email"
-                    className="rounded-xl border border-[rgba(var(--border)/0.9)] bg-white/95 px-3 py-2 text-[rgb(var(--bg))] placeholder:text-slate-500"
+                    className="form-field rounded-xl border border-[rgba(var(--border)/0.9)] px-3 py-2"
                     placeholder="you@company.com"
                   />
                 </label>
@@ -83,7 +83,7 @@ export default function ContactPage() {
               <label className="grid gap-2 text-sm">
                 What are you building?
                 <textarea
-                  className="min-h-28 rounded-xl border border-[rgba(var(--border)/0.9)] bg-white/95 px-3 py-2 text-[rgb(var(--bg))] placeholder:text-slate-500"
+                  className="form-field min-h-28 rounded-xl border border-[rgba(var(--border)/0.9)] px-3 py-2"
                   placeholder="Website, app, SaaS, refactor, or cleanup work"
                 />
               </label>
@@ -91,7 +91,7 @@ export default function ContactPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="grid gap-2 text-sm">
                   Timeline
-                  <select className="rounded-xl border border-[rgba(var(--border)/0.9)] bg-white/95 px-3 py-2 text-[rgb(var(--bg))]">
+                  <select className="form-field rounded-xl border border-[rgba(var(--border)/0.9)] px-3 py-2">
                     <option>ASAP (2-4 weeks)</option>
                     <option>1-2 months</option>
                     <option>2-4 months</option>
@@ -100,7 +100,7 @@ export default function ContactPage() {
                 </label>
                 <label className="grid gap-2 text-sm">
                   Budget range (optional)
-                  <select className="rounded-xl border border-[rgba(var(--border)/0.9)] bg-white/95 px-3 py-2 text-[rgb(var(--bg))]">
+                  <select className="form-field rounded-xl border border-[rgba(var(--border)/0.9)] px-3 py-2">
                     <option>Under $10k</option>
                     <option>$10k-$25k</option>
                     <option>$25k-$50k</option>
@@ -113,14 +113,14 @@ export default function ContactPage() {
               <label className="grid gap-2 text-sm">
                 Links / wireframes (if any)
                 <input
-                  className="rounded-xl border border-[rgba(var(--border)/0.9)] bg-white/95 px-3 py-2 text-[rgb(var(--bg))] placeholder:text-slate-500"
+                  className="form-field rounded-xl border border-[rgba(var(--border)/0.9)] px-3 py-2"
                   placeholder="Figma, Loom, site link, docs"
                 />
               </label>
 
               <button
                 type="button"
-                className="mt-2 w-full rounded-2xl bg-[rgb(var(--fg))] px-5 py-3 text-sm font-medium text-[rgb(var(--bg))] sm:w-auto"
+                className="btn-primary mt-2 w-full rounded-2xl px-5 py-3 text-sm font-medium sm:w-auto"
               >
                 Request a quote (UI only)
               </button>

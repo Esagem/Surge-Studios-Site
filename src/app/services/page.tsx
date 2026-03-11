@@ -179,13 +179,13 @@ export default function ServicesPage() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/contact#book-a-call"
-                className="rounded-2xl bg-[rgb(var(--fg))] px-5 py-3 text-sm font-medium !text-black [color:#000]"
+                className="btn-primary rounded-2xl px-5 py-3 text-sm font-medium"
               >
                 Book a Call
               </Link>
               <Link
                 href="/contact#quote"
-                className="rounded-2xl border border-[rgba(var(--border)/0.9)] px-5 py-3 text-sm font-medium"
+                className="btn-ghost rounded-2xl px-5 py-3 text-sm font-medium"
               >
                 Request a quote
               </Link>

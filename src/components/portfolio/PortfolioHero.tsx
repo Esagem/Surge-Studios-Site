@@ -89,7 +89,7 @@ export default function PortfolioHero({
               </button>
               <Link
                 href="/contact"
-                className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
+                className="btn-ghost rounded-2xl px-5 py-3 text-sm font-medium"
               >
                 Book a Call
               </Link>
