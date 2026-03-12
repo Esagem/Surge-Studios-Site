@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import InteractiveCard from "@/components/InteractiveCard";
 import SiteFooter from "@/components/SiteFooter";
 
 type LegalSection = {
@@ -34,24 +35,24 @@ export function LegalShell({
           <p className="mt-5 text-sm uppercase tracking-[0.18em] text-[rgb(var(--muted))]">
             Effective {effectiveDate}
           </p>
-          <div className="mt-6 rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-6 text-[rgb(var(--muted))] sm:p-8">
+          <InteractiveCard className="mt-6 rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-6 text-[rgb(var(--muted))] sm:p-8">
             {intro}
-          </div>
+          </InteractiveCard>
         </section>
 
         <section className="mx-auto mt-10 w-full max-w-4xl px-5 pb-16 sm:px-6">
           <div className="grid gap-6">
             {sections.map((section) => (
-              <article
+              <InteractiveCard
                 key={section.title}
                 className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-6 sm:p-8"
               >
                 <h2 className="display-heading text-2xl font-semibold sm:text-3xl">{section.title}</h2>
                 <div className="mt-4 space-y-4 text-[rgb(var(--muted))]">{section.content}</div>
-              </article>
+              </InteractiveCard>
             ))}
 
-            <div className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-6 text-sm text-[rgb(var(--muted))] sm:p-8">
+            <InteractiveCard className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-6 text-sm text-[rgb(var(--muted))] sm:p-8">
               <p>
                 Questions about these legal terms can be sent through our{" "}
                 <Link
@@ -62,7 +63,7 @@ export function LegalShell({
                 </Link>
                 .
               </p>
-            </div>
+            </InteractiveCard>
           </div>
         </section>
       </main>

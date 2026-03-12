@@ -16,6 +16,23 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Contact Form Setup (`Send details`)
+
+The contact form posts to `POST /api/contact` and sends email via Resend.
+
+1. Create a `.env.local` file in the project root.
+2. Add:
+
+```bash
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=you@yourdomain.com
+# Optional (defaults to onboarding@resend.dev)
+CONTACT_FROM_EMAIL=Surge Studios <hello@yourdomain.com>
+```
+
+3. In Resend, verify your domain if you use a custom `CONTACT_FROM_EMAIL`.
+4. Restart `npm run dev`.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

@@ -32,6 +32,8 @@
   --field-bg: 255 255 255;
   --field-fg: 16 22 30;
   --field-placeholder: 108 120 136;
+  --site-header-stack-height: 4.75rem;
+  --hero-header-gap: 1.25rem;
   --font-body: var(--font-body-sans);
   --font-display: var(--font-display-serif);
 }
@@ -413,6 +415,10 @@ html[data-theme="dark"] .theme-toggle-glyph-right {
 
 .form-field::placeholder {
   color: rgb(var(--field-placeholder));
+}
+
+.hero-section {
+  padding-top: calc(var(--site-header-stack-height) + var(--hero-header-gap));
 }
 
 .hero-panel {

@@ -190,7 +190,7 @@ export default function Home() {
     <>
       <section
         ref={heroRef}
-        className="relative flex items-start overflow-x-clip pt-28 pb-14 sm:pt-32 sm:pb-16 md:min-h-[100svh] md:items-center md:py-20 lg:min-h-[92vh] lg:py-10"
+        className="hero-section relative flex items-start overflow-x-clip pb-14 sm:pb-16 md:min-h-[100svh] md:pb-20 lg:min-h-[92vh] lg:pb-10"
       >
         <HeroBackdrop />
         <Container>

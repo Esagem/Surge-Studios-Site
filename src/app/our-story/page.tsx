@@ -1,4 +1,5 @@
 import Link from "next/link";
+import InteractiveCard from "@/components/InteractiveCard";
 import SiteFooter from "@/components/SiteFooter";
 
 const principles = [
@@ -41,7 +42,7 @@ export default function OurStoryPage() {
         </section>
 
         <section className="mx-auto mt-12 w-full max-w-6xl px-5 sm:px-6">
-          <div className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
+          <InteractiveCard className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
             <h2 className="display-heading text-3xl font-semibold sm:text-4xl">How we work</h2>
             <p className="mt-4 max-w-4xl text-[rgb(var(--muted))]">
               We combine clarity, craft, speed, flexibility, and communication in one process. That means
@@ -49,28 +50,28 @@ export default function OurStoryPage() {
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {principles.map((principle) => (
-                <article
+                <InteractiveCard
                   key={principle.title}
                   className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5"
                 >
                   <h3 className="text-base font-semibold">{principle.title}</h3>
                   <p className="mt-2 text-sm text-[rgb(var(--muted))]">{principle.text}</p>
-                </article>
+                </InteractiveCard>
               ))}
             </div>
-          </div>
+          </InteractiveCard>
         </section>
 
         <section className="mx-auto mt-14 w-full max-w-6xl px-5 sm:px-6">
           <div className="grid gap-6 md:grid-cols-[1.2fr_1fr]">
-            <div className="rounded-3xl border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-7">
+            <InteractiveCard className="rounded-3xl border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-7">
               <h2 className="display-heading text-3xl font-semibold sm:text-4xl">Who you work with</h2>
               <p className="mt-3 text-[rgb(var(--muted))]">
                 A small team you can actually reach. You will have direct contact, straightforward updates, and
                 people who know your project context without handoffs between layers.
               </p>
-            </div>
-            <div className="rounded-3xl border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-7">
+            </InteractiveCard>
+            <InteractiveCard className="rounded-3xl border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-7">
               <h2 className="display-heading text-2xl font-semibold">What that feels like</h2>
               <ul className="mt-4 grid gap-3 text-sm text-[rgb(var(--muted))]">
                 <li className="rounded-xl border border-[rgba(var(--border)/0.9)] px-4 py-3">Clear decisions</li>
@@ -78,12 +79,12 @@ export default function OurStoryPage() {
                 <li className="rounded-xl border border-[rgba(var(--border)/0.9)] px-4 py-3">Flexible execution</li>
                 <li className="rounded-xl border border-[rgba(var(--border)/0.9)] px-4 py-3">Quality-first polish</li>
               </ul>
-            </div>
+            </InteractiveCard>
           </div>
         </section>
 
         <section className="mx-auto mt-14 w-full max-w-6xl px-5 pb-16 sm:px-6">
-          <div className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
+          <InteractiveCard className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
             <h2 className="display-heading text-3xl font-semibold sm:text-4xl">
               If you want a team that actually picks up, let&apos;s talk.
             </h2>
@@ -101,7 +102,7 @@ export default function OurStoryPage() {
                 View Services
               </Link>
             </div>
-          </div>
+          </InteractiveCard>
         </section>
       </main>
       <SiteFooter />

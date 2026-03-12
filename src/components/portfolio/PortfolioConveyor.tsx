@@ -35,22 +35,38 @@ function LogoTile({
         .toUpperCase()
     : project.shortLabel;
 
+  const handlePointerLeave = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (event.pointerType === "touch") return;
+    const nextTarget = event.relatedTarget;
+    if (
+      nextTarget instanceof Element
+      && nextTarget.closest("[data-conveyor-tile='true']")
+    ) {
+      return;
+    }
+    onHoverProject(null);
+  };
+
   return (
     <motion.button
       type="button"
-      onMouseEnter={() => onHoverProject(project.id)}
-      onMouseLeave={() => onHoverProject(null)}
+      data-conveyor-tile="true"
+      onPointerEnter={(event) => {
+        if (event.pointerType === "touch") return;
+        onHoverProject(project.id);
+      }}
+      onPointerLeave={handlePointerLeave}
       onFocus={() => onHoverProject(project.id)}
       onBlur={() => onHoverProject(null)}
       onClick={() => onSelectProject(project.id)}
-      className="group relative min-w-max rounded-2xl border px-4 py-3 text-left"
+      className="group relative min-w-max origin-center rounded-2xl border px-4 py-3 text-left"
       style={{
         borderColor: active ? project.palette.ring : "rgba(255,255,255,0.08)",
         background: active ? project.palette.panel : "rgba(255,255,255,0.02)",
         boxShadow: active ? `0 0 0 1px ${project.palette.ring}, 0 0 28px ${project.palette.glow}` : "none",
       }}
-      animate={active ? { scale: 1.06, y: -2 } : { scale: 1, y: 0 }}
-      whileHover={{ scale: 1.06, y: -2 }}
+      animate={active ? { scale: 1.03, y: -1 } : { scale: 1, y: 0 }}
+      whileHover={{ scale: 1.03, y: -1 }}
       whileTap={{ scale: 0.99 }}
       transition={{ duration: 0.24, ease: MOTION_EASE }}
       aria-label={`Jump to ${project.name} section`}
@@ -121,19 +137,11 @@ export default function PortfolioConveyor({
         </div>
 
         <div
-          className="hidden overflow-hidden rounded-2xl border border-white/10 bg-[rgba(255,255,255,0.02)] p-2 lg:block"
-          onMouseEnter={() => setInteracting(true)}
-          onMouseLeave={() => {
+          className="conveyor-viewport hidden overflow-x-hidden overflow-y-visible rounded-2xl border border-white/10 bg-[rgba(255,255,255,0.02)] px-2 py-2.5 lg:block"
+          onPointerEnter={() => setInteracting(true)}
+          onPointerLeave={() => {
             setInteracting(false);
             onHoverProject(null);
-          }}
-          onFocusCapture={() => setInteracting(true)}
-          onBlurCapture={(event) => {
-            const next = event.relatedTarget;
-            if (!next || !(next instanceof Node) || !event.currentTarget.contains(next)) {
-              setInteracting(false);
-              onHoverProject(null);
-            }
           }}
         >
           <div
@@ -154,7 +162,10 @@ export default function PortfolioConveyor({
         </div>
 
         <div className="lg:hidden">
-          <div className="flex snap-x gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div
+            className="flex snap-x gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            onPointerLeave={() => onHoverProject(null)}
+          >
             {projects.map((project) => (
               <div key={project.id} className="snap-start">
                 <LogoTile
@@ -173,6 +184,10 @@ export default function PortfolioConveyor({
         .portfolio-conveyor-track {
           animation: conveyor-marquee 24s linear infinite;
           will-change: transform;
+        }
+
+        .conveyor-viewport:hover .portfolio-conveyor-track {
+          animation-play-state: paused;
         }
 
         @keyframes conveyor-marquee {

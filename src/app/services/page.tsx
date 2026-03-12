@@ -1,4 +1,5 @@
 import Link from "next/link";
+import InteractiveCard from "@/components/InteractiveCard";
 import SiteFooter from "@/components/SiteFooter";
 
 const serviceLanes = [
@@ -64,19 +65,19 @@ export default function ServicesPage() {
         <section className="mx-auto mt-12 w-full max-w-6xl px-5 sm:px-6">
           <div className="grid gap-6 md:grid-cols-3">
             {serviceLanes.map((lane) => (
-              <article
+              <InteractiveCard
                 key={lane.title}
                 className="rounded-3xl border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-7"
               >
                 <h2 className="display-heading text-2xl font-semibold">{lane.title}</h2>
                 <p className="mt-3 text-sm text-[rgb(var(--muted))]">{lane.text}</p>
-              </article>
+              </InteractiveCard>
             ))}
           </div>
         </section>
 
         <section id="takeoff" className="mx-auto mt-14 w-full max-w-6xl px-5 sm:px-6">
-          <div className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
+          <InteractiveCard className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-full border border-[rgba(var(--accent)/0.4)] bg-[rgba(var(--accent)/0.12)] px-3 py-1 text-xs font-medium">
                 TakeOff
@@ -89,40 +90,40 @@ export default function ServicesPage() {
               Featured build snapshot
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
-              <div className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">
+              <InteractiveCard className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">
                 <h3 className="text-base font-semibold">Overview</h3>
                 <p className="mt-2 text-sm text-[rgb(var(--muted))]">
                   An internal Surge Studios build used to prove process, quality standards, and launch-readiness
                   in our own product environment.
                 </p>
-              </div>
-              <div className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">
+              </InteractiveCard>
+              <InteractiveCard className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">
                 <h3 className="text-base font-semibold">The problem</h3>
                 <p className="mt-2 text-sm text-[rgb(var(--muted))]">
                   The product needed a launch-ready experience with stable behavior and polished UX under real
                   delivery constraints.
                 </p>
-              </div>
-              <div className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">
+              </InteractiveCard>
+              <InteractiveCard className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">
                 <h3 className="text-base font-semibold">The solution</h3>
                 <p className="mt-2 text-sm text-[rgb(var(--muted))]">
                   We kept scope tight, treated polish as a real phase, and prioritized reliability and handoff
                   readiness.
                 </p>
-              </div>
-              <div className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">
+              </InteractiveCard>
+              <InteractiveCard className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">
                 <h3 className="text-base font-semibold">Outcome</h3>
                 <p className="mt-2 text-sm text-[rgb(var(--muted))]">
                   A cleaner launch, better confidence in the shipped experience, and a stronger base for
                   iteration after handoff.
                 </p>
-              </div>
+              </InteractiveCard>
             </div>
-          </div>
+          </InteractiveCard>
         </section>
 
         <section className="mx-auto mt-14 w-full max-w-6xl px-5 sm:px-6">
-          <div className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
+          <InteractiveCard className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
             <h2 className="display-heading text-3xl font-semibold sm:text-4xl">Deliverables</h2>
             <ul className="mt-5 grid gap-3 text-sm text-[rgb(var(--muted))] sm:grid-cols-2">
               {deliverables.map((item) => (
@@ -131,12 +132,12 @@ export default function ServicesPage() {
                 </li>
               ))}
             </ul>
-          </div>
+          </InteractiveCard>
         </section>
 
         <section className="mx-auto mt-14 w-full max-w-6xl px-5 sm:px-6">
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-7">
+            <InteractiveCard className="rounded-3xl border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-7">
               <h2 className="display-heading text-2xl font-semibold">Pricing approach</h2>
               <p className="mt-3 text-sm text-[rgb(var(--muted))]">
                 Fixed-scope for tight MVPs when the scope is well defined and the constraints are clear.
@@ -144,33 +145,33 @@ export default function ServicesPage() {
               <p className="mt-2 text-sm text-[rgb(var(--muted))]">
                 Monthly engagement for ongoing iteration when priorities shift and you need steady velocity.
               </p>
-            </div>
-            <div className="rounded-3xl border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-7">
+            </InteractiveCard>
+            <InteractiveCard className="rounded-3xl border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-7">
               <h2 className="display-heading text-2xl font-semibold">How we keep quality high</h2>
               <p className="mt-3 text-sm text-[rgb(var(--muted))]">
                 Clear milestones, direct communication, and a dedicated polish phase keep the work fast without
                 feeling unfinished.
               </p>
-            </div>
+            </InteractiveCard>
           </div>
         </section>
 
         <section className="mx-auto mt-14 w-full max-w-6xl px-5 sm:px-6">
-          <div className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
+          <InteractiveCard className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
             <h2 className="display-heading text-3xl font-semibold sm:text-4xl">FAQ</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {faqs.map((faq) => (
-                <article key={faq.q} className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">
+                <InteractiveCard key={faq.q} className="rounded-2xl border border-[rgba(var(--border)/0.9)] p-5">
                   <h3 className="text-base font-semibold">{faq.q}</h3>
                   <p className="mt-2 text-sm text-[rgb(var(--muted))]">{faq.a}</p>
-                </article>
+                </InteractiveCard>
               ))}
             </div>
-          </div>
+          </InteractiveCard>
         </section>
 
         <section className="mx-auto mt-14 w-full max-w-6xl px-5 pb-16 sm:px-6">
-          <div className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
+          <InteractiveCard className="rounded-[2rem] border border-[rgba(var(--border)/0.9)] bg-[rgb(var(--card))] p-8 sm:p-10">
             <h2 className="display-heading text-3xl font-semibold sm:text-4xl">Ready to scope your build?</h2>
             <p className="mt-3 max-w-2xl text-[rgb(var(--muted))]">
               Bring the idea, the existing code, or the list of problems. We will help map the cleanest path to
@@ -190,7 +191,7 @@ export default function ServicesPage() {
                 Request a quote
               </Link>
             </div>
-          </div>
+          </InteractiveCard>
         </section>
       </main>
       <SiteFooter />
