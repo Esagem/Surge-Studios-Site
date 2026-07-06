@@ -72,6 +72,46 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     ],
   },
   {
+    id: "ladle",
+    name: "Ladle",
+    shortLabel: "Ladle",
+    category: "Studio Build",
+    internal: false,
+    heroAngle:
+      "A recipe app that turns anything you save into a weekly plan and a grocery list that stays in sync.",
+    summary:
+      "Ladle is a Surge Studios product. Save a recipe from anywhere, drop it into a weekly plan, and get a grocery list that builds itself and stays in sync as the plan changes. Ladle Plus unlocks imports, collections, and macro planning.",
+    workDone: [
+      "End-to-end product design across the Import, Library, Plan, Groceries, and Cook flow.",
+      "Recipe import pipeline (paste, scan, or photo) with structured parsing on the backend.",
+      "Plan-to-groceries engine that merges duplicates and keeps the list in lockstep with the plan.",
+      "Subscription and gating for Ladle Plus, plus the full account, settings, and legal stack.",
+    ],
+    standoutDecisions: [
+      "Made the grocery list a computed view of the plan, so it can never drift out of sync.",
+      "Kept macro mode gated and off by default to keep first-run simple.",
+      "Built on the shared Surge foundation so auth, paywall, and settings came for free.",
+    ],
+    outcomeHighlights: [
+      "A cohesive core loop from saved recipe to shopped ingredients.",
+      "Reusable UI and infrastructure that seeded the Surge app framework.",
+      "Launch-ready compliance: account deletion, restore, and per-app legal.",
+    ],
+    palette: {
+      accent: "#1f4d3b",
+      accentSoft: "#2e7d5f",
+      glow: "rgba(31, 77, 59, 0.24)",
+      panel: "rgba(14, 27, 39, 0.72)",
+      ring: "rgba(31, 77, 59, 0.34)",
+    },
+    logoMode: "wordmark",
+    media: [
+      { id: "ladle-library", kind: "mock", title: "Recipe library", placeholderStyle: "mobile" },
+      { id: "ladle-plan", kind: "mock", title: "Weekly plan", placeholderStyle: "dashboard" },
+      { id: "ladle-groceries", kind: "mock", title: "Grocery list", placeholderStyle: "mobile" },
+    ],
+  },
+  {
     id: "saas-starter",
     name: "SaaS Starter",
     shortLabel: "SaaS Starter",

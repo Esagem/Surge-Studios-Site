@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalShell } from "@/components/LegalPage";
+import { coveredApps } from "@/content/legal";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Surge Studios",
   description: "Privacy Policy for Surge Studios websites, apps, and related services.",
 };
+
+const apps = coveredApps();
 
 const sections = [
   {
@@ -12,14 +16,35 @@ const sections = [
     content: (
       <>
         <p>
-          This Privacy Policy explains how Surge Studios LLC collects, uses, stores, and protects
-          information when you use our websites, mobile applications, and related services.
+          This is the master Privacy Policy for Surge Studios LLC. Surge Studios LLC owns and
+          operates every product released under its umbrella, and this policy explains how we
+          collect, use, store, and protect information across all of them, our websites, and related
+          services.
         </p>
         <p>
-          This policy applies broadly to any website, application, product, or service we make
-          available under the Surge Studios name or one of our brands. If a specific product includes
-          an additional privacy notice, that notice supplements this policy for that product.
+          It applies to any website, application, product, or service we make available under the
+          Surge Studios name or one of our brands. Individual apps publish a short privacy notice
+          covering their specifics; those notices supplement this master policy and do not replace
+          it.
         </p>
+        <p>This master policy currently covers:</p>
+        {apps.length > 0 ? (
+          <ul className="list-disc space-y-2 pl-5">
+            {apps.map((app) => (
+              <li key={app.slug}>
+                {app.name} —{" "}
+                <Link
+                  className="text-[rgb(var(--fg))] underline decoration-[rgba(var(--accent)/0.6)] underline-offset-4"
+                  href={`/${app.slug}/privacy`}
+                >
+                  read the {app.name} privacy notice
+                </Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>Product-specific notices are listed here as apps launch.</p>
+        )}
       </>
     ),
   },

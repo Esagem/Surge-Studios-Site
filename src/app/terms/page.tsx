@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalShell } from "@/components/LegalPage";
+import { coveredApps } from "@/content/legal";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Surge Studios",
   description: "Terms of Service for Surge Studios websites, apps, and related services.",
 };
+
+const apps = coveredApps();
 
 const sections = [
   {
@@ -12,16 +16,36 @@ const sections = [
     content: (
       <>
         <p>
-          These Terms of Service govern your access to and use of websites, mobile applications,
-          software products, and related services operated by Surge Studios LLC. In these Terms,
-          &quot;Surge Studios,&quot; &quot;we,&quot; &quot;our,&quot; and &quot;us&quot; refer to Surge Studios
-          LLC, and &quot;Services&quot; refers to any website, application, product, or service we own,
-          operate, or make available under the Surge Studios name or one of our brands.
+          These are the master Terms of Service for Surge Studios LLC. They govern your access to and
+          use of every product Surge Studios LLC owns and operates under its umbrella, along with our
+          websites and related services. In these Terms, &quot;Surge Studios,&quot; &quot;we,&quot;
+          &quot;our,&quot; and &quot;us&quot; refer to Surge Studios LLC, and &quot;Services&quot;
+          refers to any website, application, product, or service we own, operate, or make available
+          under the Surge Studios name or one of our brands.
         </p>
         <p>
-          Some Services may include additional product-specific rules, pricing terms, or disclosures.
-          When they do, those additional terms supplement these Terms.
+          Individual apps publish a short terms notice covering their specifics, including pricing and
+          any product disclaimers; those notices supplement these master Terms and do not replace
+          them.
         </p>
+        <p>These master Terms currently cover:</p>
+        {apps.length > 0 ? (
+          <ul className="list-disc space-y-2 pl-5">
+            {apps.map((app) => (
+              <li key={app.slug}>
+                {app.name} —{" "}
+                <Link
+                  className="text-[rgb(var(--fg))] underline decoration-[rgba(var(--accent)/0.6)] underline-offset-4"
+                  href={`/${app.slug}/terms`}
+                >
+                  read the {app.name} terms notice
+                </Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>Product-specific notices are listed here as apps launch.</p>
+        )}
       </>
     ),
   },
